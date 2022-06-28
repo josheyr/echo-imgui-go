@@ -57,7 +57,7 @@ type GLFW struct {
 }
 
 // NewGLFW attempts to initialize a GLFW context.
-func NewGLFW(io IO, title string, width, height int, flags GLFWWindowFlags) (*GLFW, error) {
+func NewGLFW(io IO, title string, width, height int, flags GLFWWindowFlags, transparentBuffer bool) (*GLFW, error) {
 	runtime.LockOSThread()
 
 	err := glfw.Init()

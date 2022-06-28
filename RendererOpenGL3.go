@@ -48,6 +48,9 @@ func NewOpenGL3(io IO, contentScale float32) (*OpenGL3, error) {
 		return nil, fmt.Errorf("failed to initialize OpenGL: %v", err)
 	}
 
+	gl.Enable(gl.BLEND)
+	gl.BlendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA)
+
 	renderer := &OpenGL3{
 		imguiIO:          io,
 		glslVersion:      "#version 150",
