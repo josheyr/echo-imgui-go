@@ -131,7 +131,8 @@ func (renderer *OpenGL3) Render(displaySize [2]float32, framebufferSize [2]float
 	// Setup render state: alpha-blending enabled, no face culling, no depth testing, scissor enabled, polygon fill
 	gl.Enable(gl.BLEND)
 	gl.BlendEquation(gl.FUNC_ADD)
-	gl.BlendFuncSeparate(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA, gl.ONE, gl.ONE_MINUS_SRC_ALPHA)
+	gl.BlendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA)
+	gl.BlendFuncSeparate(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA, gl.ONE, gl.ZERO)
 	gl.Disable(gl.CULL_FACE)
 	gl.Disable(gl.DEPTH_TEST)
 	gl.Enable(gl.SCISSOR_TEST)
