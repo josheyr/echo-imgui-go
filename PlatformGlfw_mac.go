@@ -1,5 +1,5 @@
-//go:build !darwin
-// +build !darwin
+//go:build darwin
+// +build darwin
 
 package imgui
 
@@ -74,6 +74,8 @@ func NewGLFW(io IO, title string, width, height int, flags GLFWWindowFlags, tran
 	glfw.WindowHint(glfw.OpenGLForwardCompatible, 1)
 	glfw.WindowHint(glfw.ScaleToMonitor, glfw.True)
 	glfw.WindowHint(glfw.Visible, glfw.False)
+
+	glfw.WindowHint(glfw.Samples, 4) // For Multisampling (Anti-Aliasing)
 
 	if flags&GLFWWindowFlagsNotResizable != 0 {
 		glfw.WindowHint(glfw.Resizable, glfw.False)
