@@ -138,6 +138,9 @@ func (renderer *OpenGL3) Render(displaySize [2]float32, framebufferSize [2]float
 	gl.Enable(gl.SCISSOR_TEST)
 	gl.PolygonMode(gl.FRONT_AND_BACK, gl.FILL)
 
+	gl.ClearColor(1.0, 0.0, 0.0, 1.0)
+	gl.Clear(gl.COLOR_BUFFER_BIT)
+
 	// Setup viewport, orthographic projection matrix
 	// Our visible imgui space lies from draw_data->DisplayPos (top left) to draw_data->DisplayPos+data_data->DisplaySize (bottom right).
 	// DisplayMin is typically (0,0) for single viewport apps.
